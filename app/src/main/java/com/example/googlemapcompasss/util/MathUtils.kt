@@ -1,0 +1,62 @@
+/*
+ * This file is part of Compass.
+ * Copyright (C) 2022 Philipp Bobek <philipp.bobek@mailbox.org>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Compass is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package com.example.googlemapcompasss.util
+
+import android.hardware.SensorManager
+import com.example.googlemapcompasss.model.Azimuth
+import com.example.googlemapcompasss.model.DisplayRotation
+import com.example.googlemapcompasss.model.RotationVector
+
+private const val AZIMUTH = 0
+private const val AXIS_SIZE = 3
+private const val ROTATION_MATRIX_SIZE = 9
+
+object MathUtils {
+
+    @JvmStatic
+    fun calculateAzimuth(rotationVector: RotationVector, displayRotation: DisplayRotation): Azimuth {
+        val rotationMatrix = getRotationMatrix(rotationVector)
+        val remappedRotationMatrix = remapRotationMatrix(rotationMatrix, displayRotation)
+        val orientationInRadians = SensorManager.getOrientation(remappedRotationMatrix, FloatArray(AXIS_SIZE))
+        val azimuthInRadians = orientationInRadians[AZIMUTH]
+        val azimuthInDegrees = Math.toDegrees(azimuthInRadians.toDouble()).toFloat()
+        return Azimuth(azimuthInDegrees)
+    }
+
+    private fun getRotationMatrix(rotationVector: RotationVector): FloatArray {
+        val rotationMatrix = FloatArray(ROTATION_MATRIX_SIZE)
+        SensorManager.getRotationMatrixFromVector(rotationMatrix, rotationVector.toArray())
+        return rotationMatrix
+    }
+
+    private fun remapRotationMatrix(rotationMatrix: FloatArray, displayRotation: DisplayRotation): FloatArray {
+        return when (displayRotation) {
+            DisplayRotation.ROTATION_0 -> remapRotationMatrix(rotationMatrix, SensorManager.AXIS_X, SensorManager.AXIS_Y)
+            DisplayRotation.ROTATION_90 -> remapRotationMatrix(rotationMatrix, SensorManager.AXIS_Y, SensorManager.AXIS_MINUS_X)
+            DisplayRotation.ROTATION_180 -> remapRotationMatrix(rotationMatrix, SensorManager.AXIS_MINUS_X, SensorManager.AXIS_MINUS_Y)
+            DisplayRotation.ROTATION_270 -> remapRotationMatrix(rotationMatrix, SensorManager.AXIS_MINUS_Y, SensorManager.AXIS_X)
+        }
+    }
+
+    private fun remapRotationMatrix(rotationMatrix: FloatArray, newX: Int, newY: Int): FloatArray {
+        val remappedRotationMatrix = FloatArray(ROTATION_MATRIX_SIZE)
+        SensorManager.remapCoordinateSystem(rotationMatrix, newX, newY, remappedRotationMatrix)
+        return remappedRotationMatrix
+    }
+}

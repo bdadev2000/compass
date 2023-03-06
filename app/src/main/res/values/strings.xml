@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Google Map Compasss</string>
+    <string name="location_permission_denied"><![CDATA[This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.]]></string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sensor_status">Sensor status</string>
+    <string name="action_screen_rotation">Lock screen rotation</string>
+    <string name="action_night_mode">Change night mode</string>
+    <string name="about">About</string>
+
+    <string name="compass_rose_image_description">Compass rose showing to magnetic north</string>
+    <string name="device_heading_indicator_image_description">Indicates in which direction the device is pointing</string>
+
+    <string name="status_degrees_text_description">Degrees of the compass</string>
+    <string name="status_cardinal_direction_text_description">Cardinal direction of the compass</string>
+
+    <string name="cardinal_direction_north">North</string>
+    <string name="cardinal_direction_northeast">Northeast</string>
+    <string name="cardinal_direction_east">East</string>
+    <string name="cardinal_direction_southeast">Southeast</string>
+    <string name="cardinal_direction_south">South</string>
+    <string name="cardinal_direction_southwest">Southwest</string>
+    <string name="cardinal_direction_west">West</string>
+    <string name="cardinal_direction_northwest">Northwest</string>
+
+    <string name="cardinal_direction_north_abbreviation">N</string>
+    <string name="cardinal_direction_east_abbreviation">E</string>
+    <string name="cardinal_direction_south_abbreviation">S</string>
+    <string name="cardinal_direction_west_abbreviation">W</string>
+
+    <string name="ok">OK</string>
+
+    <string name="version">Version %s</string>
+    <string name="version_description">Version name</string>
+    <string name="copyright">Copyright @ 2022 <a href="mailto:philipp.bobek@mailbox.org">Philipp Bobek</a></string>
+    <string name="copyright_description">Copyright notice</string>
+    <string name="license">License <a href="https://www.gnu.org/licenses/gpl-3.0.txt">GNU GPLv3</a></string>
+    <string name="license_description">Software license</string>
+    <string name="source_code"><a href="https://github.com/Kr0oked/Compass">Source code</a></string>
+    <string name="source_code_description">Link to the Source code management</string>
+
+    <string name="sensor_accuracy_no_contact">Sensor not available</string>
+    <string name="sensor_accuracy_unreliable">Sensor values are unreliable</string>
+    <string name="sensor_accuracy_low">Low accuracy</string>
+    <string name="sensor_accuracy_medium">Average accuracy</string>
+    <string name="sensor_accuracy_high">Maximum accuracy</string>
+    <string name="sensor_accuracy_image_description">Indicates graphically the sensors accuracy</string>
+    <string name="sensor_accuracy_text_description">Describes the sensors accuracy</string>
+    <string name="sensor_error_message">Sensor not available</string>
+    <string name="sensor_calibration_text">You can try to improve your sensor accuracy at any time by rotating the device in a figure 8 pattern.</string>
+    <string name="sensor_calibration_text_description">Explains how to improve the sensor accuracy</string>
+
+    <string name="zero_degrees" translatable="false">0°</string>
+    <string name="degrees" translatable="false">%1$d°</string>
+
+    <string name="degree_0_text" translatable="false">0</string>
+    <string name="degree_30_text" translatable="false">30</string>
+    <string name="degree_60_text" translatable="false">60</string>
+    <string name="degree_90_text" translatable="false">90</string>
+    <string name="degree_120_text" translatable="false">120</string>
+    <string name="degree_150_text" translatable="false">150</string>
+    <string name="degree_180_text" translatable="false">180</string>
+    <string name="degree_210_text" translatable="false">210</string>
+    <string name="degree_240_text" translatable="false">240</string>
+    <string name="degree_270_text" translatable="false">270</string>
+    <string name="degree_300_text" translatable="false">300</string>
+    <string name="degree_330_text" translatable="false">330</string>
+</resources>

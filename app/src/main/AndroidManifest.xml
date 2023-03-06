@@ -18,10 +18,6 @@
             android:name=".activity.CompassActivity"
             android:exported="false" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDH2J9n5jyRnlcowknoB9wnK61JwEEBpLg" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
